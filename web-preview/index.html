@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodSaver App Preview</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding-bottom: 50px;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+        .app-preview {
+            max-width: 375px;
+            border: 10px solid #333;
+            border-radius: 30px;
+            overflow: hidden;
+            margin: 0 auto;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .app-screen {
+            height: 667px;
+            background-color: #fff;
+            overflow-y: auto;
+            position: relative;
+        }
+        .welcome-screen {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 30px 20px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .logo-container {
+            text-align: center;
+            margin-top: 60px;
+        }
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .tagline {
+            font-size: 16px;
+        }
+        .description {
+            text-align: center;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+        .btn-custom-primary {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
+            padding: 12px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .btn-custom-outline {
+            border-color: white;
+            color: white;
+            padding: 12px;
+            font-weight: bold;
+        }
+        .product-card {
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .product-image {
+            height: 150px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #FF5722;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .product-content {
+            padding: 15px;
+        }
+        .business-name {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        .product-name {
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .price-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .discounted-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #4CAF50;
+            margin-right: 8px;
+        }
+        .original-price {
+            font-size: 14px;
+            color: #999;
+            text-decoration: line-through;
+        }
+        .quantity-text {
+            font-size: 12px;
+            color: #666;
+        }
+        .nav-tabs {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .screen-selector {
+            margin-bottom: 30px;
+        }
+        .screen-btn {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>FoodSaver App Preview</h1>
+            <p>A mobile application similar to Too Good To Go for selling soon-to-expire products at discounted prices</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-12 text-center">
+                <div class="screen-selector">
+                    <button class="btn btn-primary screen-btn" onclick="showScreen('welcome')">Welcome Screen</button>
+                    <button class="btn btn-primary screen-btn" onclick="showScreen('consumer-home')">Consumer Home</button>
+                    <button class="btn btn-primary screen-btn" onclick="showScreen('product-details')">Product Details</button>
+                    <button class="btn btn-primary screen-btn" onclick="showScreen('business-dashboard')">Business Dashboard</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="app-preview">
+                    <div class="app-screen">
+                        <!-- Welcome Screen -->
+                        <div id="welcome" class="welcome-screen">
+                            <div class="logo-container">
+                                <div class="logo">FoodSaver</div>
+                                <div class="tagline">Save Food. Save Money. Save the Planet.</div>
+                            </div>
+                            <div>
+                                <div class="description">
+                                    Connect with local businesses to purchase surplus food at great discounts and help reduce food waste.
+                                </div>
+                                <button class="btn btn-custom-primary w-100">Login</button>
+                                <button class="btn btn-custom-outline w-100">Register</button>
+                            </div>
+                        </div>
+
+                        <!-- Consumer Home Screen -->
+                        <div id="consumer-home" class="p-3" style="display: none;">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h2 class="mb-0">FoodSaver</h2>
+                                <i class="bi bi-geo-alt-fill text-success fs-4"></i>
+                            </div>
+                            
+                            <div class="input-group mb-3">
+                                <span class="input-group-text"><i class="bi bi-search"></i></span>
+                                <input type="text" class="form-control" placeholder="Search for food...">
+                            </div>
+                            
+                            <div class="d-flex overflow-auto mb-3 pb-2">
+                                <span class="badge bg-success me-2 p-2">Bakery</span>
+                                <span class="badge bg-light text-dark me-2 p-2">Dairy</span>
+                                <span class="badge bg-light text-dark me-2 p-2">Fruits</span>
+                                <span class="badge bg-light text-dark me-2 p-2">Vegetables</span>
+                                <span class="badge bg-light text-dark me-2 p-2">Meat</span>
+                            </div>
+                            
+                            <div class="product-card">
+                                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1608198093002-ad4e005484ec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80')">
+                                    <div class="discount-badge">50% OFF</div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="business-name">Green Grocers</div>
+                                    <div class="product-name">Organic Banana Bundle</div>
+                                    <div class="price-container">
+                                        <div class="discounted-price">$1.99</div>
+                                        <div class="original-price">$3.99</div>
+                                    </div>
+                                    <div class="quantity-text">5 left • Expires today</div>
+                                </div>
+                            </div>
+                            
+                            <div class="product-card">
+                                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80')">
+                                    <div class="discount-badge">40% OFF</div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="business-name">Fresh Bakery</div>
+                                    <div class="product-name">Assorted Bread Basket</div>
+                                    <div class="price-container">
+                                        <div class="discounted-price">$4.50</div>
+                                        <div class="original-price">$7.50</div>
+                                    </div>
+                                    <div class="quantity-text">3 left • Expires tomorrow</div>
+                                </div>
+                            </div>
+                            
+                            <div class="product-card">
+                                <div class="product-image" style="background-image: url('https://images.unsplash.com/photo-1628689469838-524a4a973b8e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80')">
+                                    <div class="discount-badge">60% OFF</div>
+                                </div>
+                                <div class="product-content">
+                                    <div class="business-name">Dairy Delight</div>
+                                    <div class="product-name">Yogurt Pack (4 units)</div>
+                                    <div class="price-container">
+                                        <div class="discounted-price">$2.80</div>
+                                        <div class="original-price">$7.00</div>
+                                    </div>
+                                    <div class="quantity-text">8 left • Expires in 2 days</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product Details Screen -->
+                        <div id="product-details" class="position-relative" style="display: none;">
+                            <div class="position-absolute top-0 start-0 p-2 z-3">
+                                <button class="btn btn-light rounded-circle">
+                                    <i class="bi bi-arrow-left"></i>
+                                </button>
+                            </div>
+                            <div class="position-absolute top-0 end-0 p-2 z-3">
+                                <button class="btn btn-light rounded-circle">
+                                    <i class="bi bi-geo-alt"></i>
+                                </button>
+                            </div>
+                            
+                            <div style="height: 250px; background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2232&q=80'); background-size: cover; background-position: center;"></div>
+                            
+                            <div class="position-absolute top-50 end-0 translate-middle-y me-3">
+                                <div class="bg-danger text-white px-3 py-2 rounded">
+                                    <b>40% OFF</b>
+                                </div>
+                            </div>
+                            
+                            <div class="p-3">
+                                <div class="text-muted small mb-1">Fresh Bakery</div>
+                                <h4 class="mb-2">Assorted Bread Basket</h4>
+                                
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="text-success fs-4 fw-bold me-2">$4.50</div>
+                                    <div class="text-muted text-decoration-line-through">$7.50</div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="bi bi-calendar me-2 text-muted"></i>
+                                        <div class="text-muted">Expires: Apr 30, 2025</div>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="bi bi-clock me-2 text-muted"></i>
+                                        <div class="text-muted">Pickup: 5:00 PM - 8:00 PM</div>
+                                    </div>
+                                    <div class="d-flex align-items-center mb-2">
+                                        <i class="bi bi-box me-2 text-muted"></i>
+                                        <div class="text-muted">Available: 3 left</div>
+                                    </div>
+                                </div>
+                                
+                                <hr>
+                                
+                                <h5 class="mb-2">Description</h5>
+                                <p class="text-muted mb-3">
+                                    A delicious assortment of freshly baked bread including sourdough, whole wheat, and multigrain varieties. Perfect for your dinner table or breakfast toast.
+                                </p>
+                                
+                                <hr>
+                                
+                                <h5 class="mb-2">Select Quantity</h5>
+                                <div class="d-flex justify-content-center align-items-center mb-3">
+                                    <button class="btn btn-light rounded-circle">-</button>
+                                    <div class="mx-4 fw-bold">1</div>
+                                    <button class="btn btn-light rounded-circle">+</button>
+                                </div>
+                                
+                                <hr>
+                                
+                                <h5 class="mb-2">Select Pickup Time</h5>
+                                <div class="d-flex overflow-auto mb-3">
+                                    <div class="bg-success text-white rounded-pill px-3 py-2 me-2">5:00 PM</div>
+                                    <div class="bg-light rounded-pill px-3 py-2 me-2">5:30 PM</div>
+                                    <div class="bg-light rounded-pill px-3 py-2 me-2">6:00 PM</div>
+                                    <div class="bg-light rounded-pill px-3 py-2 me-2">6:30 PM</div>
+                                    <div class="bg-light rounded-pill px-3 py-2 me-2">7:00 PM</div>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <div>
+                                        <div class="text-muted">Total:</div>
+                                        <div class="fs-4 fw-bold text-success">$4.50</div>
+                                    </div>
+                                    <button class="btn btn-success px-4 py-2">Proceed to Checkout</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Business Dashboard Screen -->
+                        <div id="business-dashboard" class="p-3" style="display: none;">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-light rounded-circle p-2 me-3">
+                                        <i class="bi bi-shop fs-4"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-muted small">Welcome back,</div>
+                                        <div class="fw-bold">Green Grocers</div>
+                                    </div>
+                                </div>
+                                <i class="bi bi-gear fs-5 text-muted"></i>
+                            </div>
+                            
+                            <div class="row g-2 mb-4">
+                                <div class="col-6">
+                                    <div class="card">
+                                        <div class="card-body d-flex align-items-center">
+                                            <div class="text-success me-3">
+                                                <i class="bi bi-apple fs-3"></i>
+                                            </div>
+                                            <div>
+                                                <div class="fs-4 fw-bold">12</div>
+                                                <div class="small text-muted">Active Products</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card">
+                                        <div class="card-body d-flex align-items-center">
+                                            <div class="text-danger me-3">
+                                                <i class="bi bi-receipt fs-3"></i>
+                                            </div>
+                                            <div>
+                                                <div class="fs-4 fw-bold">3</div>
+                                                <div class="small text-muted">Pending Orders</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Your Impact</h5>
+                                    <div class="row text-center g-3 mt-2">
+                                        <div class="col-4">
+                                            <i class="bi bi-egg-fried text-success fs-3"></i>
+                                            <div class="fw-bold mt-2">120 kg</div>
+                                            <div class="small text-muted">Food Saved</div>
+                                        </div>
+                                        <div class="col-4">
+                                            <i class="bi bi-cloud text-primary fs-3"></i>
+                                            <div class="fw-bold mt-2">240 kg</div>
+                                            <div class="small text-muted">CO₂ Reduced</div>
+                                        </div>
+                                        <div class="col-4">
+                                            <i class="bi bi-check-circle text-warning fs-3"></i>
+                                            <div class="fw-bold mt-2">45</div>
+                                            <div class="small text-muted">Orders Completed</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <h5 class="card-title mb-0">Weekly Sales</h5>
+                                        <a href="#" class="text-success small fw-bold">View All</a>
+                                    </div>
+                                    <img src="https://via.placeholder.com/300x150?text=Sales+Chart" class="img-fluid rounded" alt="Sales Chart">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <button class="btn btn-success w-100 mb-2">
+                                    <i class="bi bi-plus-circle me-2"></i> Add New Product
+                                </button>
+                                <button class="btn btn-outline-success w-100">
+                                    <i class="bi bi-list me-2"></i> Manage Products
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">About FoodSaver</h3>
+                        <p>FoodSaver is a mobile application similar to Too Good To Go, designed to connect businesses with consumers to reduce food waste by offering discounted soon-to-expire products.</p>
+                        
+                        <h4>Key Features</h4>
+                        <h5>For Businesses (Supermarkets/Restaurants)</h5>
+                        <ul>
+                            <li>User registration and profile management</li>
+                            <li>Add, edit, and remove product listings</li>
+                            <li>Set discounts and expiration times</li>
+                            <li>Manage orders and pickup schedules</li>
+                            <li>View sales analytics and impact metrics</li>
+                        </ul>
+                        
+                        <h5>For Consumers</h5>
+                        <ul>
+                            <li>User registration and profile management</li>
+                            <li>Browse nearby discounted products</li>
+                            <li>Filter by category, price, distance, etc.</li>
+                            <li>Place orders and make payments</li>
+                            <li>Schedule pickups</li>
+                            <li>Rate and review businesses</li>
+                            <li>Track environmental impact</li>
+                        </ul>
+                        
+                        <h4>Tech Stack</h4>
+                        <ul>
+                            <li><strong>Frontend:</strong> React Native with Expo</li>
+                            <li><strong>Backend:</strong> Node.js with Express</li>
+                            <li><strong>Database:</strong> MongoDB</li>
+                            <li><strong>Authentication:</strong> Firebase Authentication</li>
+                            <li><strong>Cloud Storage:</strong> Firebase Storage</li>
+                            <li><strong>State Management:</strong> Redux Toolkit</li>
+                            <li><strong>UI Framework:</strong> React Native Paper</li>
+                            <li><strong>Maps Integration:</strong> Google Maps API</li>
+                            <li><strong>Notifications:</strong> Firebase Cloud Messaging</li>
+                            <li><strong>Payment Processing:</strong> Stripe</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showScreen(screenId) {
+            // Hide all screens
+            document.getElementById('welcome').style.display = 'none';
+            document.getElementById('consumer-home').style.display = 'none';
+            document.getElementById('product-details').style.display = 'none';
+            document.getElementById('business-dashboard').style.display = 'none';
+            
+            // Show selected screen
+            document.getElementById(screenId).style.display = screenId === 'welcome' ? 'flex' : 'block';
+        }
+    </script>
+</body>
+</html>
