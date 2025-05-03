@@ -1,4 +1,4 @@
-# FoodSaver
+# Still Good
 
 A mobile application similar to Too Good To Go, connecting businesses with consumers to reduce food waste by offering discounted soon-to-expire products.
 
